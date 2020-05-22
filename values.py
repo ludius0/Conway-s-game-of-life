@@ -1,5 +1,6 @@
 # CONSTANTS
 H = 800
+W = 600
 C = 10 # Size of rect
 
 # COLORS
