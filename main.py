@@ -9,6 +9,7 @@ import values as v
 
 # CONSTANTS
 H = v.H
+W = v.W
 C = v.C
 
 
@@ -17,14 +18,14 @@ def draw_grid(screen, color):
     x, y = 0, 0
     for _ in range(H):
         x, y = x+C, y+C
-        pygame.draw.line(screen, color, (x,0),(x,H))
+        pygame.draw.line(screen, color, (x,0),(x,W))
         pygame.draw.line(screen, color, (0,y),(H,y))
 
 def draw_rect(screen, x, y, color):
     pygame.draw.rect(screen, color, (x,y, C+1, C+1))
 
-def draw_rect_from_board(screen, color, W):
-    for i in W:
+def draw_rect_from_board(screen, color, b):
+    for i in b:
         x, y = i
         pygame.draw.rect(screen, color, (x,y, C+1, C+1))
     
@@ -78,7 +79,7 @@ def main():
     global World
     # Initialise screen
     pygame.init()
-    screen = pygame.display.set_mode((H, H))
+    screen = pygame.display.set_mode((H, W))
     pygame.display.set_caption("Conway's Game of Life by ludius0")
     screen.fill(v.BG)
 
